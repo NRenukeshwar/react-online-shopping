@@ -18,10 +18,10 @@ function Header(props){
       
       <Navbar dark expand="md" className="" style={{backgroundColor:"#2874f0"}}>
         <NavbarToggler onClick={isNavOpen?()=>setIsNavOpen(false):()=>setIsNavOpen(true)} />
-        <NavbarBrand>
-          <Link to="/" className="navbar-brand text-white">
+        <NavbarBrand className="text-white">
+          
             <span><i className="fas fa-shopping-bag fa-lg"></i></span> NN Shopping
-          </Link>
+          
         </NavbarBrand>
         <Collapse isOpen={isNavOpen} navbar>
           <Nav navbar className="ml-auto">
