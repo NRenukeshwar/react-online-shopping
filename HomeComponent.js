@@ -10,11 +10,12 @@ class HomeComponent extends React.Component{
   render()
   {
     var dd=localStorage.getItem('loginDetail')
+    dd=JSON.parse(dd)
     return(
       <div>
         homes
-        
-        {console.log(this.dd)}
+
+        {console.log(dd==null)}
       </div>
     )
   }
