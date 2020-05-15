@@ -26,6 +26,11 @@ function Header(props){
         <Collapse isOpen={isNavOpen} navbar>
           <Nav navbar className="ml-auto">
             <NavItem>
+              <Link className="nav-link text-white" to="/">
+                Home
+              </Link>
+            </NavItem>
+            <NavItem>
               <Link className="nav-link text-white" to="/aboutUs">
                 About Us
               </Link>
@@ -38,9 +43,9 @@ function Header(props){
             <NavItem>
               {props.login
               ? 
-              <Link className="nav-link text-white" onClick={props.handleLogout}>
-                <span><i className="fas fa-sign-out-alt"></i> Logout</span>
-              </Link>
+              <span className="nav-link text-white" style={{cursor:"pointer"}} onClick={props.handleLogout}>
+                <i className="fas fa-sign-out-alt"></i> Logout
+              </span>
               :
               
               <Link className="nav-link text-white" to="/login">

@@ -6,7 +6,7 @@ class Cart extends React.Component{
   {
     return(
       <div>
-      cart
+        cart
       </div>
     )
   }

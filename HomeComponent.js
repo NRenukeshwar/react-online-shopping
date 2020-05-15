@@ -5,14 +5,16 @@ class HomeComponent extends React.Component{
   constructor(props)
   {
     super(props);
-
   }
 
   render()
   {
+    var dd=localStorage.getItem('loginDetail')
     return(
       <div>
-        home
+        homes
+        
+        {console.log(this.dd)}
       </div>
     )
   }

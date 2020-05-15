@@ -1,17 +1,45 @@
 {
-  "book":[
-    {
-      "id":1,"name":"nani"
-    },
-    {
-      "id":1,"name":"nani"
-    },
-    {
-      "id":2,"name":"nani"
-    },
-    {
-      "id":3,"name":"nani"
-    }
+	"products":{
+		"mobiles":[
+      {
+        "id":1,
+        "image":"",
+        "name":"Realme 5i (Forest Green, 128 GB)",
+        "price":10900,
+        "reviews":[],
+        "available":true
+      },
+      {
+        "id":2,
+        "image":"",
+        "name":"Realme 6i (Forest Green, 128 GB)",
+        "price":10900,
+        "reviews":[],
+        "available":true
+      },
+      {
+        "id":3,
+        "image":"",
+        "name":"Realme 7i (Forest Green, 128 GB)",
+        "price":10900,
+        "reviews":[],
+        "available":true
+      },
+      {
+        "id":4,
+        "image":"",
+        "name":"Realme 8i (Forest Green, 128 GB)",
+        "price":10900,
+        "reviews":[],
+        "available":true
+      }
+    ],
+		"desktops":[]
+	},
+	"users":[
+		{"id":1,"email":"admin@wipro.com","name":"Admin", "password":"admin","type":"admin"},
+		{"id":2,"email":"user@wipro.com","name":"User", "password":"user","type":"user"},
+		{"id":3,"email":"user1@wipro.com","name":"User1", "password":"12345","type":"user"}
+	]
 
-  ]
 }
