@@ -52,6 +52,7 @@ class Registration extends React.Component{
       alert("All feilds are mandatory");
     }
   }
+
   render()
   {
     return (

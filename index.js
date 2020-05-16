@@ -13,6 +13,8 @@ import Registration from './Registration'
 
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery';
+import 'bootstrap/dist/js/bootstrap';
 
 class App extends React.Component {
   constructor(){
@@ -89,7 +91,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
-
+        
         <Header login={this.state.login} handleLogout={this.handleLogout} />
         <Route path="/aboutUs"><AboutUs /></Route>
         <Route path="/contactUs"><ContactUs /></Route>
