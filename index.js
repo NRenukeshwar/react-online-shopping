@@ -31,7 +31,7 @@ class App extends React.Component {
     axios.get('http://localhost:3001/users').then(res=>this.setState({
       users:res.data
     }))
-    
+  
   }
 
   handleChange=(event)=>{
@@ -40,6 +40,13 @@ class App extends React.Component {
       [event.target.name]:event.target.value
     })
   }
+
+  saveCart=(event, cart)=>{
+    event.preventDefault()
+
+
+  }
+
 
   handleLoginSubmit=(event)=>{
     event.preventDefault()
@@ -87,11 +94,12 @@ class App extends React.Component {
         <Route path="/aboutUs"><AboutUs /></Route>
         <Route path="/contactUs"><ContactUs /></Route>
         <Route path="/login"> {this.state.login ?<Redirect to="/"/>:<Login handleLoginSubmit={this.handleLoginSubmit} username={this.state.username} password={this.state.password} handleChange={this.handleChange}/>}</Route>
-        <Route path="/cart">{this.state.login ? <Cart />:<Redirect to="/login" />}</Route>
+        <Route path="/cart">{this.state.login ? <Cart cart={}/>:<Redirect to="/login" />}</Route>
         <Route path="/register"> <Registration /></Route>
         <Route exact path="/">
-          <HomeComponent login={this.state.login}/>
+          <HomeComponent saveCart={this.saveCart} />
         </Route>
+        
         
       </BrowserRouter>
     );
