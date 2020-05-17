@@ -23,7 +23,8 @@ class App extends React.Component {
       login:false,
       username:"",
       password:"",
-      users:[]
+      users:[],
+      cart:[]
   }
   localStorage.removeItem('loginDetail')
   }
@@ -43,11 +44,65 @@ class App extends React.Component {
     })
   }
 
-  saveCart=(event, cart)=>{
+  saveItemToCart=(event, product)=>{
     event.preventDefault()
 
+    const cart=this.state.cart
+    if(cart.length>0){ 
+        if(cart.filter(p=>p.id==product.id).length>0)
+        {
+          alert("Item added already into cart")
+        }
+        else{
+          cart.push({...product,"quantity":1})
+          this.setState({
+            cart:cart
+          })
+          alert("Item added into cart sucessfully")
+        }
+      }
+    else{
+      cart.push({...product,"quantity":1})
+      this.setState({
+        cart:cart
+      })
+      alert("Item added into cart sucessfully")
+    } 
+  }
+
+  incrementProduct=(event,index)=>{
+    event.preventDefault();
+
+    const cart=this.state.cart
+
+    if(cart[index].quantity<3){
+    cart[index].quantity++;
+    this.setState({cart:cart})
+    }
+    else{
+      alert("You can only purchase three units of "+cart[index].name.toUpperCase()+" in single order")
+    }
 
   }
+
+  decrementProduct=(event,index)=>{
+    event.preventDefault();
+
+    const cart=this.state.cart
+    if(cart[index].quantity>1)
+    { cart[index].quantity--;
+      this.setState({cart:cart})
+    }   
+  }
+
+  removeProduct=(event,index)=>{
+    event.preventDefault();
+
+    const cart=this.state.cart
+    cart.splice(index,1)
+    this.setState({cart:cart})
+  }
+
 
 
   handleLoginSubmit=(event)=>{
@@ -92,14 +147,14 @@ class App extends React.Component {
       <BrowserRouter>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
         
-        <Header login={this.state.login} handleLogout={this.handleLogout} />
+        <Header login={this.state.login} handleLogout={this.handleLogout} cartCount={this.state.cart.length}/>
         <Route path="/aboutUs"><AboutUs /></Route>
         <Route path="/contactUs"><ContactUs /></Route>
         <Route path="/login"> {this.state.login ?<Redirect to="/"/>:<Login handleLoginSubmit={this.handleLoginSubmit} username={this.state.username} password={this.state.password} handleChange={this.handleChange}/>}</Route>
-        <Route path="/cart">{this.state.login ? <Cart cart={}/>:<Redirect to="/login" />}</Route>
+        <Route path="/cart"><Cart cart={this.state.cart} incrementProduct={this.incrementProduct} decrementProduct={this.decrementProduct} removeProduct={this.removeProduct}/></Route>
         <Route path="/register"> <Registration /></Route>
         <Route exact path="/">
-          <HomeComponent saveCart={this.saveCart} />
+          <HomeComponent saveItemToCart={this.saveItemToCart} />
         </Route>
         
         

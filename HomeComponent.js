@@ -12,7 +12,8 @@ class HomeComponent extends React.Component{
     this.state={
       products:[],
       cart:[],
-      displayProducts:[]
+      displayProducts:[],
+      pageLoaded:false
     }
   }
 
@@ -21,7 +22,11 @@ class HomeComponent extends React.Component{
     axios.get('http://localhost:3001/products').then(res=>this.setState({
       products:res.data,
       displayProducts:res.data
-    }))
+    })).then(()=>{
+      this.setState({
+        pageLoaded:true
+      })
+    })
   }
 
   handleCategory=(event,category)=>{
@@ -44,6 +49,7 @@ class HomeComponent extends React.Component{
     var dd=localStorage.getItem('loginDetail')
     dd=JSON.parse(dd);
 
+    if(this.state.pageLoaded){
     return(
       <div className="container">
         <CategoryNav  handleCategory={this.handleCategory}/>
@@ -55,41 +61,48 @@ class HomeComponent extends React.Component{
               <img src={product.src} className="d-flex m-1 mx-auto img-fluid" alt={product.name} />                         
             </div>
 
-          <div className="col-12 col-sm-7 mt-2"  >
-            <h5>{product.name}</h5>
+          <div className="col-12 col-sm-7 mt-2">
+            <h4>{product.name}</h4>
             Rating: <span className="badge badge-success text-white p-1" style={{fontSize:"12px"}}><i className="fa fa-star"></i>{product.star}</span>
             <br/><br/>
             
           <ul id={"ul"+index} className="nav nav-tabs">
-            <li className="nav-item"><a className="nav-link active" data-toggle="tab" href={"#descp"+index}>Description</a></li>
-            <li className="nav-item"><a className="nav-link" data-toggle="tab" href={"#specf"+index}>Specification</a></li>
+            <li className="nav-item"><a className="nav-link" data-toggle="tab" href={"#descp"+index}>Description</a></li>
+            <li className="nav-item"><a className="nav-link active" data-toggle="tab" href={"#specf"+index}>Specification</a></li>
             <li className="nav-item"><a className="nav-link" data-toggle="tab" href={"#review"+index}>Review</a></li>
           </ul>
-        <div id={"div"+index} className="tab-content">
-          <div id={"descp"+index} className="tab-pane active">
-          <h3>HOME</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div id={"div"+index} className="tab-content border mb-3" style={{borderTop:"0px solid"}}>
+          <div id={"descp"+index} className="container mt-2 tab-pane fade">
+          <h5>Description</h5>
+          <p>{product.description}</p>
         </div>
-        <div id={"specf"+index} className="tab-pane fade">
-          <h3>Menu 1</h3>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div id={"specf"+index} className="container mt-2 tab-pane active">
+          <h5>Specifications</h5>
+          <p><ul>{product.specifications.map((spe,index)=><li key={index}>{spe}</li>)}</ul></p>
         </div>
-        <div id={"review"+index} className="tab-pane fade">
-          <h3>Menu 2</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        <div id={"review"+index} className="container mt-2 tab-pane fade">
+          <h5>Reviews</h5>
+          <p>{}</p>
         </div>
         </div>
         </div>
 
-          <div className="col-12 col-sm-2 mt-5">
-            <h5>₹{product.cost}</h5>
+          <div className="col-12 col-sm-2 m-auto text-center">
+            <h4>₹{product.cost}</h4>
             <p><strike>₹{product.originalcost}</strike> {product.offer}% off</p>
+            {product.available?<button className="btn btn-primary mb-2" onClick={(event)=>this.props.saveItemToCart(event,product)}>Add to Cart</button>:<p>Sold Out</p>}
           </div>
           </div>
         )}
        </div>
       </div>
     )
+    }
+    else{
+    return(
+      <div className="text-warning text-center mt-5"><h3 ><i className="fa fa-spinner fa-spin text-success" aria-hidden="true"></i>Loading...</h3></div>
+    )
+    }
   }
 
 }

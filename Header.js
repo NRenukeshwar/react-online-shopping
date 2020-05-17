@@ -57,7 +57,7 @@ function Header(props){
         <Nav navbar>
           <NavItem>
               <Link className="nav-link text-white" to="/cart">
-                <span><i className="fas fa-shopping-cart"></i> Cart</span>
+                <span><i className="fas fa-shopping-cart"></i> Cart{props.cartCount>0&&<sup><span className="badge badge-danger">{props.cartCount}</span></sup>}</span>
               </Link>
             </NavItem>
         </Nav>
