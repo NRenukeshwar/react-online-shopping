@@ -138,7 +138,8 @@ class App extends React.Component {
   {
     event.preventDefault()
     this.setState({
-      login:false
+      login:false,
+      cart:[]
     })
     localStorage.removeItem('loginDetail')
   }
@@ -151,7 +152,8 @@ class App extends React.Component {
         <Route path="/aboutUs"><AboutUs /></Route>
         <Route path="/contactUs"><ContactUs /></Route>
         <Route path="/login"> {this.state.login ?<Redirect to="/"/>:<Login handleLoginSubmit={this.handleLoginSubmit} username={this.state.username} password={this.state.password} handleChange={this.handleChange}/>}</Route>
-        <Route path="/cart"><Cart cart={this.state.cart} incrementProduct={this.incrementProduct} decrementProduct={this.decrementProduct} removeProduct={this.removeProduct}/></Route>
+       <Route path="/cart">{this.state.login ? <Cart cart={this.state.cart} incrementProduct={this.incrementProduct} decrementProduct={this.decrementProduct} removeProduct={this.removeProduct}/>:<Redirect to="/login" />}</Route>
+
         <Route path="/register"> <Registration /></Route>
         <Route exact path="/">
           <HomeComponent saveItemToCart={this.saveItemToCart} />
