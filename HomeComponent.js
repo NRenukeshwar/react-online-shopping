@@ -78,7 +78,7 @@ class HomeComponent extends React.Component{
         </div>
         <div id={"specf"+index} className="container mt-2 tab-pane active">
           <h5>Specifications</h5>
-          <p><ul>{product.specifications.map((spe,index)=><li key={index}>{spe}</li>)}</ul></p>
+          <ul>{product.specifications.map((spe,index)=><li key={index}>{spe}</li>)}</ul>
         </div>
         <div id={"review"+index} className="container mt-2 tab-pane fade">
           <h5>Reviews</h5>
