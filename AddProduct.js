@@ -25,8 +25,8 @@ class AddProduct extends React.Component{
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
-      [name]: value
-    });
+      [name]: name=="src"?URL.createObjectURL(event.target.files[0]):value
+    })
   };
   render()
   {
@@ -79,6 +79,7 @@ class AddProduct extends React.Component{
               placeholder="Enter Product Image"
               
             />
+            {this.state.src!=""?<img src={this.state.src} width="100px" height="100px" alt="Image"/>:''}
           </div>
           <div className="form-group row col-sm-6 mx-auto">
             <Label for="star">Star Rating</Label>
