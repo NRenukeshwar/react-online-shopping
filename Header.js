@@ -14,9 +14,12 @@ import { Link } from "react-router-dom";
 function Header(props){
 
    const [isNavOpen, setIsNavOpen] = useState(false);
+   var dd=localStorage.getItem('loginDetail')
+    dd=JSON.parse(dd);
+    if(dd==null || dd.type=="user")
     return (
       
-      <Navbar dark expand="md" className="" style={{backgroundColor:"#2874f0"}}>
+      <Navbar dark expand="md" style={{backgroundColor:"#2874f0"}}>
         <NavbarToggler onClick={isNavOpen?()=>setIsNavOpen(false):()=>setIsNavOpen(true)} />
         <NavbarBrand className="text-white">
           
@@ -25,19 +28,28 @@ function Header(props){
         </NavbarBrand>
         <Collapse isOpen={isNavOpen} navbar>
           <Nav navbar className="ml-auto">
+             <NavItem>
+              {props.login
+              ? 
+              <span className="nav-link text-white" style={{cursor:"pointer"}}>
+                <i className="fas fa-user-circle"></i> Hi {dd.name}!
+              </span>
+              :
+             ''}
+            </NavItem>
             <NavItem>
               <Link className="nav-link text-white" to="/">
-                Home
+                <i className="fas fa-home"></i> Home
               </Link>
             </NavItem>
             <NavItem>
               <Link className="nav-link text-white" to="/aboutUs">
-                About Us
+                <i className="fas fa-shopping-bag"></i> About Us
               </Link>
             </NavItem>
             <NavItem>
               <Link className="nav-link text-white" to="/contactUs">
-                Contact Us
+                <i className="fas fa-address-card"></i> Contact Us
               </Link>
             </NavItem>
             <NavItem>
@@ -52,6 +64,7 @@ function Header(props){
                 <span><i className="fas fa-sign-in-alt"></i> Login</span>
               </Link>}
             </NavItem>
+            
           </Nav>
         </Collapse>
         <Nav navbar>
@@ -62,7 +75,49 @@ function Header(props){
             </NavItem>
         </Nav>
       </Navbar>
-    );
+    )
+    else
+    return (
+      
+      <Navbar dark expand="md" style={{backgroundColor:"#2874f0"}}>
+        <NavbarToggler onClick={isNavOpen?()=>setIsNavOpen(false):()=>setIsNavOpen(true)} />
+        <NavbarBrand className="text-white">
+          
+            <span><i className="fas fa-shopping-bag fa-lg"></i></span> NN Shopping
+          
+        </NavbarBrand>
+        <Collapse isOpen={isNavOpen} navbar>
+          <Nav navbar className="ml-auto">
+             <NavItem>
+              {props.login
+              ? 
+              <span className="nav-link text-white" style={{cursor:"pointer"}}>
+                <i className="fas fa-user-circle"></i> Hi {dd.name}!
+              </span>
+              :
+             ''}
+            </NavItem>
+            <NavItem>
+              <Link className="nav-link text-white" to="/admin/home">
+                <i className="fas fa-home"></i> Home
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link className="nav-link text-white" to="/admin/home">
+                <i className="fas fa-plus"></i> Add Product
+              </Link>
+            </NavItem>
+          </Nav>
+        </Collapse>
+        <Nav navbar>
+          <NavItem>
+              <span className="nav-link text-white" style={{cursor:"pointer"}} onClick={props.handleLogout}>
+                <i className="fas fa-sign-out-alt"></i> Logout
+              </span>
+            </NavItem>
+        </Nav>
+      </Navbar>
+    )
   }
 
 export default Header;

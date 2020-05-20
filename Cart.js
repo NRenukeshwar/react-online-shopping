@@ -63,7 +63,7 @@ function Cart(props) {
                     </div>
                     <button
                       className="btn btn-danger"
-                      onClick={() => props.removeProduct(event, index)}
+                      onClick={(event) => props.removeProduct(event, index)}
                     >
                       Remove
                     </button>
@@ -73,7 +73,7 @@ function Cart(props) {
             </CardBody>
             <CardFooter className="bg-white text-center">
               <h4>Total Amount ₹{total}</h4>
-              <button className="btn btn-success">Place order</button>
+              <button className="btn btn-success" onClick={(e)=>props.clearCart(e)}>Place order</button>
             </CardFooter>
           </Card>
         </div>

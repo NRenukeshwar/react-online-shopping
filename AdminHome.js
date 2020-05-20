@@ -1,26 +1,39 @@
 import React from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import {Link } from 'react-router-dom'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-import CategoryNav from './CategoryNav'
+class AdminHome extends React.Component{
 
-class HomeComponent extends React.Component{
-
-  constructor(props)
+  
+  constructor()
   {
-    super(props);
+    super();
     this.state={
       products:[],
-      displayProducts:[],
-      pageLoaded:false
+      editProduct:{
+        id:"",
+        name: "",
+	      specifications:[],
+        src:"",
+       star:"",
+       cost:"",
+       originalcost:"",
+       offer:"",
+       reviews: [],
+	      description:"",
+       available: false,
+	      type:""
+        },
+      pageLoaded:false,
+      modal:false
     }
   }
 
   componentDidMount()
   {
     axios.get('http://localhost:3001/products').then(res=>this.setState({
-      products:res.data,
-      displayProducts:res.data
+      products:res.data
     })).then(()=>{
       this.setState({
         pageLoaded:true
@@ -28,20 +41,30 @@ class HomeComponent extends React.Component{
     })
   }
 
-  handleCategory=(event,category)=>{
-    if(category!='')
-    {
-      console.log(category)
-      this.setState({
-      displayProducts:this.state.products.filter(product=>product.type==category.toLowerCase())
-      })
-    }
-    else{
-      this.setState({
-          displayProducts=this.state.products
-      })
-    }
+  refreshProducts(){
+    axios.get('http://localhost:3001/products').then(res=>this.setState({
+      products:res.data
+    }))
   }
+
+  handleEdit=(e,p)=>{
+    e.preventDefault()
+
+    this.setState({
+      editProduct:p,
+      modal:true
+    })
+  }
+
+  handleChange=(e)=>{
+    const edit=this.state.editProduct
+    
+    this.setState({
+
+    })
+  }
+
+
 
   render()
   {
@@ -51,9 +74,18 @@ class HomeComponent extends React.Component{
     if(this.state.pageLoaded){
     return(
       <div className="container">
-        <CategoryNav  handleCategory={this.handleCategory}/>
-        <div>
-        {this.state.displayProducts.map((product,index)=>
+        <Modal isOpen={this.state.modal}>
+        <ModalHeader>Modal title</ModalHeader>
+        <ModalBody>
+
+
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary">Do Something</Button>{' '}
+          <Button color="secondary">Cancel</Button>
+        </ModalFooter>
+      </Modal>
+        {this.state.products.map((product,index)=>
           <div key={product.id} className="row mb-3 shadow border">
             
            <div className="col-12 col-sm-3">
@@ -63,7 +95,7 @@ class HomeComponent extends React.Component{
           <div className="col-12 col-sm-7 mt-2">
             <h4>{product.name}</h4>
             Rating: <span className="badge badge-success text-white p-1" style={{fontSize:"12px"}}><i className="fa fa-star"></i>{product.star}</span>
-            <br/><br/>
+            <p>Availabilitty :{product.available}</p>
             
           <ul id={"ul"+index} className="nav nav-tabs">
             <li className="nav-item"><a className="nav-link" data-toggle="tab" href={"#descp"+index}>Description</a></li>
@@ -89,12 +121,14 @@ class HomeComponent extends React.Component{
           <div className="col-12 col-sm-2 m-auto text-center">
             <h4>₹{product.cost}</h4>
             <p><strike>₹{product.originalcost}</strike> {product.offer}% off</p>
-            {product.available?<button className="btn btn-primary mb-2" onClick={(event)=>this.props.saveItemToCart(event,product)}>Add to Cart</button>:<p>Sold Out</p>}
+            <button className="btn btn-primary mb-2" onClick={(event)=>this.handleEdit(event,product)}>Update</button>
+            <button className="btn btn-danger mb-2" onClick={(event)=>this.handleDelete(event,product)}>Delete</button>
+            
           </div>
           </div>
         )}
        </div>
-      </div>
+
     )
     }
     else{
@@ -103,7 +137,5 @@ class HomeComponent extends React.Component{
     )
     }
   }
-
 }
-
-export default HomeComponent;
+export default AdminHome

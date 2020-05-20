@@ -9,7 +9,8 @@ import Cart from './Cart'
 import ContactUs from './ContactUs'
 import AboutUs from './AboutUs'
 import Registration from './Registration'
-
+import AdminHome from './AdminHome'
+import AddProduct from './AddProduct'
 
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -103,7 +104,14 @@ class App extends React.Component {
     this.setState({cart:cart})
   }
 
+  clearCart=(event)=>{
+    event.preventDefault();
+    const list=[this.state.cart.map(c=>c.name)]
+    console.log(list)
+    alert("Thank you for placing order..\n"+list.length+" Items\n"+list)
 
+    this.setState({cart:[]})
+  }
 
   handleLoginSubmit=(event)=>{
     event.preventDefault()
@@ -122,7 +130,7 @@ class App extends React.Component {
       this.setState({
         login:true
       })
-      const detail=user[0]
+      const detail={"name":user[0].name,"username":user[0].username,"type":user[0].type}
       localStorage.setItem('loginDetail',JSON.stringify(detail))
     }
     else{
@@ -152,12 +160,14 @@ class App extends React.Component {
         <Route path="/aboutUs"><AboutUs /></Route>
         <Route path="/contactUs"><ContactUs /></Route>
         <Route path="/login"> {this.state.login ?<Redirect to="/"/>:<Login handleLoginSubmit={this.handleLoginSubmit} username={this.state.username} password={this.state.password} handleChange={this.handleChange}/>}</Route>
-       <Route path="/cart">{this.state.login ? <Cart cart={this.state.cart} incrementProduct={this.incrementProduct} decrementProduct={this.decrementProduct} removeProduct={this.removeProduct}/>:<Redirect to="/login" />}</Route>
-
+       <Route path="/cart">{this.state.login ? <Cart cart={this.state.cart} incrementProduct={this.incrementProduct} decrementProduct={this.decrementProduct} removeProduct={this.removeProduct} clearCart={this.clearCart}/>:<Redirect to="/login" />}</Route>
         <Route path="/register"> <Registration /></Route>
         <Route exact path="/">
           <HomeComponent saveItemToCart={this.saveItemToCart} />
         </Route>
+
+        <Route path="/admin/home"><AdminHome /></Route>
+        <Route path="/admin/addProduct"><AddProduct /></Route>
         
         
       </BrowserRouter>
