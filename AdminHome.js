@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {Link } from 'react-router-dom'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter,Label, Input } from 'reactstrap';
 
 class AdminHome extends React.Component{
 
@@ -14,7 +14,7 @@ class AdminHome extends React.Component{
       editProduct:{
         id:"",
         name: "",
-	      specifications:[],
+	      specifications:[""],
         src:"",
        star:"",
        cost:"",
@@ -60,7 +60,58 @@ class AdminHome extends React.Component{
     const edit=this.state.editProduct
     
     this.setState({
+      editProduct:{...edit,[e.target.name]:e.target.value}
+    })
+  }
 
+  addRow=(e)=>{
+    e.preventDefault()
+    const edit=this.state.editProduct
+    
+    edit.specifications.push("")
+    this.setState({
+      editProduct:edit
+    })
+  }
+
+  deleteRow=(e,index)=>{
+    e.preventDefault()
+    const edit=this.state.editProduct
+    
+    if(edit.specifications.length>1)
+    edit.specifications.splice(index,1)
+    this.setState({
+      editProduct:edit
+    })
+  }
+
+  handleChangeRow=(e,index)=>{
+    const edit=this.state.editProduct
+    
+    edit.specifications[index]=e.target.value
+    this.setState({
+      editProduct:edit
+    })
+    
+  }
+  cancelUpdate=(e)=>{
+    e.preventDefault()
+    this.setState({
+      editProduct:{
+        id:"",
+        name: "",
+	      specifications:[""],
+        src:"",
+       star:"",
+       cost:"",
+       originalcost:"",
+       offer:"",
+       reviews: [],
+	      description:"",
+       available: false,
+	      type:""
+        },
+      modal:false
     })
   }
 
@@ -74,15 +125,191 @@ class AdminHome extends React.Component{
     if(this.state.pageLoaded){
     return(
       <div className="container">
-        <Modal isOpen={this.state.modal}>
-        <ModalHeader>Modal title</ModalHeader>
+        <Modal isOpen={this.state.modal} className="w-1">
+        <ModalHeader>Update Product</ModalHeader>
         <ModalBody>
-
+          <form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <Label for="name">Product Name</Label>
+            <Input
+              type="text"
+              id="name"
+              name="name"
+              className="form-control"
+              value={this.state.editProduct.name}
+              onChange={event => {
+                this.handleChange(event);
+              }}
+              placeholder="Enter Product Name"
+              required
+            />
+            
+          </div>
+          <div className="form-group">
+            <Label for="specifications">Specifications</Label>
+            <br/>
+            <ol>
+            {this.state.editProduct.specifications.map((item,index)=><li key={index}>
+            <div className="input-group">
+              <Input
+              type="text"
+              id={"specifications"+index}
+              name={"specifications"+index}
+              className="form-control mb-1"
+              value={item}
+              onChange={event => {
+                this.handleChangeRow(event,index);
+              }}
+              placeholder="Enter Product specifications"
+              required
+            />
+             <div className="input-group-append">
+                <button type="button" onClick={(e)=>this.deleteRow(e,index)} className="btn btn-danger" style={{height:"38px"}}><i className="fa fa-trash "/></button>
+              </div>
+            </div>
+            {index==this.state.editProduct.specifications.length-1? <button type="button" className="btn btn-success" onClick={(e)=>this.addRow(e)}><i className="fa fa-plus"/> Add</button>:''}</li>)}
+            </ol>
+          </div>
+          <div className="form-group">
+            <Label for="src">Product Image</Label>
+            <Input
+              type="url"
+              id="src"
+              name="src"
+              className="form-control p-1"
+              onChange={event => {
+                this.handleChange(event);
+              }}
+              value={this.state.editProduct.src}
+              placeholder="Enter Product Image URL"
+              required
+            />
+            {this.state.editProduct.src.trim()!=""?<img src={this.state.editProduct.src} width="100px" height="100px" alt="Image"/>:''}
+          </div>
+          <div className="form-group">
+            <Label for="star">Star Rating</Label>
+            <Input
+              type="number"
+              id="star"
+              name="star"
+              step="0.1"
+              min="0"
+              max="5"
+              value={this.state.editProduct.star}
+              className="form-control"
+              onChange={event => {
+                this.handleChange(event);
+              }}
+              placeholder="Enter Product Star Rating"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <Label for="cost">Cost</Label>
+            <Input
+              type="number"
+              id="cost"
+              name="cost"
+              min="1"
+              className="form-control"
+              value={this.state.editProduct.cost}
+              onChange={event => {
+                this.handleChange(event);
+              }}
+              placeholder="Enter Product cost with offer"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <Label for="offer">Offer (%)</Label>
+            <Input
+              type="number"
+              id="offer"
+              name="offer"
+              min="1"
+              max="100"
+              className="form-control"
+              value={this.state.editProduct.offer}
+              onChange={event => {
+                this.handleChange(event);
+              }}
+              placeholder="Enter Product offer/discount in %"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <Label for="originalcost">Original Cost (without offer)</Label>
+            <Input
+              type="number"
+              id="originalcost"
+              name="originalcost"
+              min="1"
+              className="form-control"
+              value={this.state.editProduct.originalcost}
+              onChange={event => {
+                this.handleChange(event);
+              }}
+              placeholder="Enter Product cost without offer"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <Label for="available">Availability</Label>
+            <select
+              id="available"
+              name="available"
+              className="form-control"
+              value={this.state.editProduct.available}
+              onChange={event => {
+                this.handleChange(event);
+              }}
+              required
+            >
+              <option value="">Select available</option>
+              <option value="true">Available</option>
+              <option value="false">Sold Out</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <Label for="type">Product Type</Label>
+             <select
+              id="type"
+              name="type"
+              className="form-control"
+              value={this.state.editProduct.type}
+              onChange={event => {
+                this.handleChange(event);
+              }}
+              required
+            >
+              <option value="">Select type</option>
+              <option value="mobiles">Mobiles</option>
+              <option value="desktops">Desktops</option>
+              <option value="accessories">Accessories</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <Label for="description">Description</Label>
+            <Input
+              type="textarea"
+              id="description"
+              name="description"
+              min="1"
+              className="form-control"
+              value={this.state.editProduct.description}
+              onChange={event => {
+                this.handleChange(event);
+              }}
+              placeholder="Enter Product description"
+              required
+            />
+          </div>
+          </form>
 
         </ModalBody>
         <ModalFooter>
-          <Button color="primary">Do Something</Button>{' '}
-          <Button color="secondary">Cancel</Button>
+          <Button color="primary">Update</Button>{' '}
+          <Button color="secondary" onClick={this.cancelUpdate}>Cancel</Button>
         </ModalFooter>
       </Modal>
         {this.state.products.map((product,index)=>

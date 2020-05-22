@@ -1,6 +1,8 @@
 import React from 'react'
 import { Label, Input } from "reactstrap";
 import { Link } from "react-router-dom";
+import axios from 'axios'
+
 class AddProduct extends React.Component{
 
  constructor()
@@ -9,7 +11,7 @@ class AddProduct extends React.Component{
     this.state={
 
         name: "",
-	      specifications:[],
+	      specifications:[""],
         src:"",
        star:"",
        cost:"",
@@ -21,20 +23,96 @@ class AddProduct extends React.Component{
     }
   }
 
-    handleChange = event => {
+  handleChange = event => {
     const name = event.target.name;
     const value = event.target.value;
+  
     this.setState({
-      [name]: name=="src"?URL.createObjectURL(event.target.files[0]):value
+      [name]: value
     })
-  };
+  }
+
+  addRow=(e)=>{
+    e.preventDefault()
+    const arr=this.state.specifications
+    arr.push("")
+    this.setState({
+      specifications:arr
+    })
+  }
+
+  deleteRow=(e,index)=>{
+    e.preventDefault()
+    const arr=this.state.specifications
+    if(arr.length>1)
+    arr.splice(index,1)
+    this.setState({
+      specifications:arr
+    })
+  }
+
+  handleChangeRow=(e,index)=>{
+    const arr=this.state.specifications
+    arr[index]=e.target.value
+    this.setState({
+      specifications:arr
+    })
+    
+  }
+
+  handleSubmit=(e)=>{
+    e.preventDefault()
+    const {        name,
+	      specifications,
+        src,
+       star,
+       cost,
+       originalcost,
+       offer,
+	      description,
+       available,
+	      type}= this.state
+    if(
+        name!="" &&
+	      specifications.length>0 &&
+        src!="" &&
+       star!="" &&
+       cost!="" &&
+       originalcost!="" &&
+       offer!="" &&
+	      description!="" &&
+       available!="" &&
+	      type!=""
+    )
+    {
+      const newProduct ={...this.state,reviews:[],available:Boolean(this.state.available)}
+      axios.post('http://localhost:3001/products',newProduct).then(res=>this.setState({
+      name: "",
+	      specifications:[""],
+        src:"",
+       star:"",
+       cost:"",
+       originalcost:"",
+       offer:"",
+	      description:"",
+       available: "",
+	      type:""
+    }))
+    alert("New Product added successfully")
+    }
+    else
+    {
+      alert("All feilds are mandatory")
+    }
+    console.log(this.state)
+  }
   render()
   {
     return(
       <div className="container">
 
-         <h2 className="text-warning text-center">Add Product</h2>
-        <form onSubmit={this.handleSubmit} className="">
+        <h2 className="text-warning text-center mt-3">Add Product</h2>
+        <form onSubmit={this.handleSubmit}>
           <div className="form-group row col-sm-6 mx-auto">
             <Label for="name">Product Name</Label>
             <Input
@@ -49,37 +127,48 @@ class AddProduct extends React.Component{
               placeholder="Enter Product Name"
               required
             />
+            
           </div>
           <div className="form-group row col-sm-6 mx-auto">
-            <Label for="name">----</Label>
-            <Input
+            <Label for="specifications">Specifications</Label>
+            <br/>
+            <ol>
+            {this.state.specifications.map((item,index)=><li key={index}>
+            <div className="input-group">
+              <Input
               type="text"
-              id="name"
-              name="name"
-              className="form-control"
-              value={this.state.name}
+              id={"specifications"+index}
+              name={"specifications"+index}
+              className="form-control mb-1"
+              value={item}
               onChange={event => {
-                this.handleChange(event);
+                this.handleChangeRow(event,index);
               }}
-              placeholder="Enter Product Name"
+              placeholder="Enter Product specifications"
               required
             />
+             <div className="input-group-append">
+                <button type="button" onClick={(e)=>this.deleteRow(e,index)} className="btn btn-danger" style={{height:"38px"}}><i className="fa fa-trash "/></button>
+              </div>
+            </div>
+            {index==this.state.specifications.length-1? <button type="button" className="btn btn-success" onClick={(e)=>this.addRow(e)}><i className="fa fa-plus"/> Add</button>:''}</li>)}
+            </ol>
           </div>
           <div className="form-group row col-sm-6 mx-auto">
-            <Label for="name">Product Image (.jpg, .png)</Label>
+            <Label for="src">Product Image</Label>
             <Input
-              type="file"
-              accept="image/*"
+              type="url"
               id="src"
               name="src"
               className="form-control p-1"
               onChange={event => {
                 this.handleChange(event);
               }}
-              placeholder="Enter Product Image"
-              
+              value={this.state.src}
+              placeholder="Enter Product Image URL"
+              required
             />
-            {this.state.src!=""?<img src={this.state.src} width="100px" height="100px" alt="Image"/>:''}
+            {this.state.src.trim()!=""?<img src={this.state.src} width="100px" height="100px" alt="Image"/>:''}
           </div>
           <div className="form-group row col-sm-6 mx-auto">
             <Label for="star">Star Rating</Label>
@@ -204,7 +293,7 @@ class AddProduct extends React.Component{
 
 
           <div className="d-flex justify-content-center">
-            <Link to="/">
+            <Link to="/admin/home">
               <button
                 type="button"
                 id="cancel"
