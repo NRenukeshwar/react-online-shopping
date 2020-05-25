@@ -119,13 +119,10 @@ class AdminHome extends React.Component{
 
   render()
   {
-    var dd=localStorage.getItem('loginDetail')
-    dd=JSON.parse(dd);
-
     if(this.state.pageLoaded){
     return(
       <div className="container">
-        <Modal isOpen={this.state.modal} className="w-1">
+        <Modal isOpen={this.state.modal} className="container row w-100">
         <ModalHeader>Update Product</ModalHeader>
         <ModalBody>
           <form onSubmit={this.handleSubmit}>
