@@ -27,7 +27,25 @@ class HomeComponent extends React.Component{
       })
     })
   }
-
+  commentSubmit=(event,form,index)=>{
+    event.preventDefault()
+    console.log(index)
+    
+    const reviews={
+      star:form[index].rating.value,
+      comment:form[index].comment.value,
+      author:form[index].author.value
+    }
+    const displayProducts=this.state.displayProducts
+    displayProducts[index].reviews.push(reviews)
+    this.setState({
+      displayProducts:displayProducts
+    })
+    console.log(reviews)
+    form[index].rating.value=""
+    form[index].comment.value=""
+    form[index].author.value=""
+  }
   handleCategory=(event,category)=>{
     if(category!='')
     {
@@ -56,8 +74,8 @@ class HomeComponent extends React.Component{
         {this.state.displayProducts.map((product,index)=>
           <div key={product.id} className="row mb-3 shadow border">
             
-           <div className="col-12 col-sm-3">
-              <img src={product.src} className="d-flex m-1 mx-auto img-fluid" alt={product.name} />                         
+           <div className="col-12 col-sm-3 m-auto">
+              <img src={product.src} className="d-flex mb-1 mx-auto img-fluid" alt={product.name} />                         
             </div>
 
           <div className="col-12 col-sm-7 mt-2">
@@ -81,7 +99,26 @@ class HomeComponent extends React.Component{
         </div>
         <div id={"review"+index} className="container mt-2 tab-pane fade">
           <h5>Reviews</h5>
-          <p>{}</p>
+          {product.reviews.map((review,rindex)=>
+            <div key={rindex} className="m-3 p-2" style={{border:"1px solid grey",borderLeft:"5px solid grey", borderRadius:"5px"}}>
+            <b>Comment: </b>{review.comment}<br/>
+            <b>Rating: </b>{review.star}<br/>
+            <b>Author: </b>{review.author}
+            </div>
+          )}
+          <button className="btn btn-primary btn-sm mb-2" data-toggle="collapse" data-target={"#add"+product.id}>Add Comment</button>
+          <div id={"add"+product.id} className="m-3 p-2 collapse">
+          <form name="myform" onSubmit={event=>this.commentSubmit(event,myform,index)}>
+          <b>Rating: </b><input type="number" id="rating" name="rating" step="0.1" min="0" max="5" className="form-control" required/>
+            <b>Comment: </b><input type="text" id="comment" name="comment" className="form-control" required/>
+            
+            <b>Author: </b><input type="text" id="author" name="author" className="form-control" required/>
+            <div className="mt-2" align="center">  
+              <button className="btn btn-success btn-sm">Add</button>
+            </div>
+            </form>
+            </div>
+            
         </div>
         </div>
         </div>

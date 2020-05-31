@@ -104,7 +104,6 @@ class AddProduct extends React.Component{
     {
       alert("All feilds are mandatory")
     }
-    console.log(this.state)
   }
   render()
   {

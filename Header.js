@@ -103,7 +103,7 @@ function Header(props){
               </Link>
             </NavItem>
             <NavItem>
-              <Link className="nav-link text-white" to="/admin/home">
+              <Link className="nav-link text-white" to="/admin/addProduct">
                 <i className="fas fa-plus"></i> Add Product
               </Link>
             </NavItem>

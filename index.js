@@ -107,8 +107,8 @@ class App extends React.Component {
   clearCart=(event)=>{
     event.preventDefault();
     const list=[this.state.cart.map(c=>c.name)]
-    console.log(list)
-    alert("Thank you for placing order..\n"+list.length+" Items\n"+list)
+    
+    alert("Thank you for placing order..\n"+this.state.cart.length+" Items\n"+list)
 
     this.setState({cart:[]})
   }
@@ -152,6 +152,9 @@ class App extends React.Component {
     localStorage.removeItem('loginDetail')
   }
     render(){
+   var dd=localStorage.getItem('loginDetail')
+    dd=JSON.parse(dd);
+    
     return (
       <BrowserRouter>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
@@ -159,15 +162,15 @@ class App extends React.Component {
         <Header login={this.state.login} handleLogout={this.handleLogout} cartCount={this.state.cart.length}/>
         <Route path="/aboutUs"><AboutUs /></Route>
         <Route path="/contactUs"><ContactUs /></Route>
-        <Route path="/login"> {this.state.login ?<Redirect to="/"/>:<Login handleLoginSubmit={this.handleLoginSubmit} username={this.state.username} password={this.state.password} handleChange={this.handleChange}/>}</Route>
+        <Route path="/login"> {this.state.login ? dd.type=="user" && dd!=null?<Redirect to="/"/>:<Redirect to="/admin/home"/>:<Login handleLoginSubmit={this.handleLoginSubmit} username={this.state.username} password={this.state.password} handleChange={this.handleChange}/>}</Route>
        <Route path="/cart">{this.state.login ? <Cart cart={this.state.cart} incrementProduct={this.incrementProduct} decrementProduct={this.decrementProduct} removeProduct={this.removeProduct} clearCart={this.clearCart}/>:<Redirect to="/login" />}</Route>
         <Route path="/register"> <Registration /></Route>
         <Route exact path="/">
           <HomeComponent saveItemToCart={this.saveItemToCart} />
         </Route>
 
-        <Route path="/admin/home"><AdminHome /></Route>
-        <Route path="/admin/addProduct"><AddProduct /></Route>
+        <Route path="/admin/home">{dd!=null && dd.type=="admin" && this.state.login?<AdminHome />:<Redirect to="/login"/>}</Route>
+        <Route path="/admin/addProduct">{dd!=null && dd.type=="admin" && this.state.login?<AddProduct />:<Redirect to="/login"/>} </Route>
         
         
       </BrowserRouter>

@@ -55,6 +55,30 @@ class AdminHome extends React.Component{
       modal:true
     })
   }
+  handleSubmit=(event)=>{
+    event.preventDefault()
+
+    axios.put('http://localhost:3001/products/'+this.state.editProduct.id,this.state.editProduct).then(()=>{this.setState({
+       editProduct:{
+        id:"",
+        name: "",
+	      specifications:[""],
+        src:"",
+       star:"",
+       cost:"",
+       originalcost:"",
+       offer:"",
+       reviews: [],
+	      description:"",
+       available: false,
+	      type:""
+        },
+      modal:false
+    })
+    this.refreshProducts()
+    console.log(this.state.editProduct.id)
+    alert("Product Details Updated Successfully")})
+  }
 
   handleChange=(e)=>{
     const edit=this.state.editProduct
@@ -114,18 +138,32 @@ class AdminHome extends React.Component{
       modal:false
     })
   }
+  handleDelete=(event,index)=>{
+    event.preventDefault()
+    const products=this.state.products
+    products.splice(index,1)
 
-
+    this.setState({
+      products:products
+    })
+    //axios.delete('http://localhost:3001/products').then(()=>this.refreshProducts)
+    alert("Product removed successfully..")
+  }
+  
 
   render()
   {
     if(this.state.pageLoaded){
     return(
-      <div className="container">
-        <Modal isOpen={this.state.modal} className="container row w-100">
-        <ModalHeader>Update Product</ModalHeader>
+      <div className="container mt-3">
+        <Modal isOpen={this.state.modal} className="container row w-100 modal-lg h-100" style={{overflow:"scroll"}}>
+        
+        <ModalHeader>
+        Update Product
+        <div className="ml-auto text-right"><button type="button" className="btn btn-white" onClick={this.cancelUpdate}>&times;</button></div>
+        </ModalHeader>
         <ModalBody>
-          <form onSubmit={this.handleSubmit}>
+          <form id="form">
           <div className="form-group">
             <Label for="name">Product Name</Label>
             <Input
@@ -305,14 +343,15 @@ class AdminHome extends React.Component{
 
         </ModalBody>
         <ModalFooter>
-          <Button color="primary">Update</Button>{' '}
+          <Button color="primary" onClick={this.handleSubmit}>Update</Button>{' '}
           <Button color="secondary" onClick={this.cancelUpdate}>Cancel</Button>
         </ModalFooter>
       </Modal>
+      <div >
         {this.state.products.map((product,index)=>
-          <div key={product.id} className="row mb-3 shadow border">
+          <div key={product.id} className="row mb-3 mt-1 shadow border">
             
-           <div className="col-12 col-sm-3">
+           <div className="col-12 col-sm-3 m-auto">
               <img src={product.src} className="d-flex m-1 mx-auto img-fluid" alt={product.name} />                         
             </div>
 
@@ -337,7 +376,13 @@ class AdminHome extends React.Component{
         </div>
         <div id={"review"+index} className="container mt-2 tab-pane fade">
           <h5>Reviews</h5>
-          <p>{}</p>
+          {product.reviews.map((review,rindex)=>
+            <div key={rindex} className="m-3 p-2" style={{border:"1px solid grey",borderLeft:"5px solid grey", borderRadius:"5px"}}>
+            <b>Comment: </b>{review.comment}<br/>
+            <b>Rating: </b>{review.star}<br/>
+            <b>Author: </b>{review.author}
+            </div>
+          )}
         </div>
         </div>
         </div>
@@ -346,11 +391,12 @@ class AdminHome extends React.Component{
             <h4>₹{product.cost}</h4>
             <p><strike>₹{product.originalcost}</strike> {product.offer}% off</p>
             <button className="btn btn-primary mb-2" onClick={(event)=>this.handleEdit(event,product)}>Update</button>
-            <button className="btn btn-danger mb-2" onClick={(event)=>this.handleDelete(event,product)}>Delete</button>
+            <button className="btn btn-danger mb-2" onClick={(event)=>this.handleDelete(event,index)}>Delete</button>
             
           </div>
           </div>
         )}
+        </div>
        </div>
 
     )
