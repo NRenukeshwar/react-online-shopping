@@ -1,0 +1,687 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Realme 5i (Forest Green, 128 GB)",
+      "specifications": [
+        "4 GB RAM | 128 GB ROM",
+        "16.56 cm (6.52 inch) HD+ Display",
+        "12MP + 8MP + 2MP + 2MP | 8MP Front Camera",
+        "5000 mAh Battery",
+        "Qualcomm Snapdragon 665 (2 GHz) Processor",
+        "Sunrise Design"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/312/312/k65d18w0pkrrdj/mobile/y/a/z/realme-5i-rmx2030-original-imafnsx5bj4yqhas.jpeg?q=70",
+      "star": "4.4",
+      "cost": 10999,
+      "originalcost": "11999",
+      "offer": "8",
+      "reviews": [
+        {
+          "id": 1,
+          "comment": "Best phone in this price range",
+          "star": "4.8",
+          "author": "Jhon"
+        },
+        {
+          "id": 2,
+          "comment": "Good phone..",
+          "star": "4.5",
+          "author": "Vamsi"
+        },
+        {
+          "id": 3,
+          "comment": "front camera can be better",
+          "star": "3.9",
+          "author": "Rahul"
+        }
+      ],
+      "description": "The Realme 5i is here to meet your smartphone demands seamlessly as it houses a massive 5000 mAh battery and is powered by a 2.0 GHz Qualcomm Snapdragon 665 AIE Processor. Make photography a serious business with its AI Quad camera that features a 12 MP Primary Lens, 8 MP Ultra Wide-Angle Lens, 2 MP Super Macro Lens and 2 MP Portrait Lens.",
+      "available": true,
+      "type": "mobiles"
+    },
+    {
+      "id": 2,
+      "name": "Realme C3 (Frozen Blue, 32 GB)",
+      "specifications": [
+        "3 GB RAM | 32 GB ROM | Expandable Upto 256 GB",
+        "16.56 cm (6.52 inch) HD+ Display",
+        "12MP + 2MP | 5MP Front Camera",
+        "5000 mAh Battery",
+        "Helio G70 Processor"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/312/312/k612pow0/mobile/b/s/r/realme-c3-rmx2027-original-imafzkzhts5kfmxt.jpeg?q=70",
+      "star": "4.5",
+      "cost": 7499,
+      "originalcost": "7999",
+      "offer": "6",
+      "reviews": [
+        {
+          "id": 1,
+          "comment": "Good mobile at this price segment",
+          "star": "4",
+          "author": "Gajendar"
+        },
+        {
+          "id": 2,
+          "comment": "Realme C3 : The New Budget King",
+          "star": "4",
+          "author": "Amrit Kumar"
+        }
+      ],
+      "description": "Packed with an octa-core Helio G70 AI processor, this Realme smartphone’s performance certainly packs a punch. Be it gaming or multitasking, you can do it all without any hint of lag by using this smartphone. It also comes equipped with a 16.5-centimetre (6.5) HD+ mini-drop fullscreen that has a screen-to-body ratio of about 89.8% to help you see every single detail in your favourite video content.",
+      "available": true,
+      "type": "mobiles"
+    },
+    {
+      "id": 3,
+      "name": "Apple iPhone 11 Pro Max (Midnight Green, 64 GB)",
+      "specifications": [
+        "64 GB ROM",
+        "16.51 cm (6.5 inch) Super Retina XDR Display",
+        "12MP + 12MP + 12MP | 12MP Front Camera",
+        "5000 mAh Battery",
+        "A13 Bionic Chip Processor",
+        "Brand Warrenty of 1 Year"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/312/312/k2jbyq80pkrrdj/mobile-refurbished/c/u/e/iphone-11-pro-512-u-mwcd2hn-a-apple-0-original-imafkg2fhzhzzh5s.jpeg?q=70",
+      "star": "4.7",
+      "cost": "135000",
+      "originalcost": "150000",
+      "offer": "10",
+      "reviews": [
+        {
+          "id": 1,
+          "comment": "Great purchase, happily upgraded to iPhone 11 pro max and I’m quite satisfied with the performance of the phone",
+          "star": "4.8",
+          "author": "Sameer Shaikh"
+        },
+        {
+          "id": 2,
+          "comment": "Good quality product",
+          "star": "4.5",
+          "author": "Akhil Bhugul"
+        },
+        {
+          "id": 3,
+          "comment": "Classy product",
+          "star": "4.2",
+          "author": "Rajkhowa"
+        }
+      ],
+      "description": "NA",
+      "available": "true",
+      "type": "mobiles"
+    },
+    {
+      "id": 5,
+      "name": "Apple iPhone 11 Pro Max (Gold, 64 GB)",
+      "specifications": [
+        "512 GB ROM",
+        "16.51 cm (6.5 inch) Super Retina XDR Display",
+        "12MP + 12MP + 12MP | 12MP Front Camera",
+        "5000 mAh Battery",
+        "A13 Bionic Chip Processor",
+        "Brand Warrenty of 1 Year"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/312/312/k2jbyq80pkrrdj/mobile-refurbished/e/b/u/iphone-11-pro-max-64-a-mwhg2hn-a-apple-0-original-imafkg2fg3evmhuy.jpeg?q=70",
+      "star": "4.7",
+      "cost": "135000",
+      "originalcost": "150000",
+      "offer": "10",
+      "reviews": [{
+          "id": 1,
+          "comment": "Great purchase, happily upgraded to iPhone 11 pro max and I’m quite satisfied with the performance of the phone",
+          "star": "4.8",
+          "author": "Sameer Shaikh"
+        },
+        {
+          "id": 2,
+          "comment": "Good quality product",
+          "star": "4.5",
+          "author": "Akhil Bhugul"
+        },
+        {
+          "id": 3,
+          "comment": "Classy product",
+          "star": "4.2",
+          "author": "Rajkhowa"
+        }],
+      "description": "NA",
+      "available": false,
+      "type": "mobiles"
+    },
+    {
+      "name": "Redmi Note 8 Pro (Shadow Black, 64 GB)  (6 GB RAM)",
+      "specifications": [
+        "6 GB RAM | 64 GB ROM | Expandable Upto 512 GB",
+        "16.59 cm (6.53 inch) Full HD+ Display",
+        "64MP + 8MP + 2MP + 2MP | 20MP Front Camera",
+        "4500 mAh Li-polymer Battery",
+        "MediaTek Helio G90T Processor",
+        "1 Year Warranty on Phone, 6 Months Warranty on Accessories"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/416/416/k87nxjk0/mobile/e/a/4/redmi-note-8-pro-mzb8312in-original-imafqaf3bdypexgy.jpeg?q=70",
+      "star": "4.5",
+      "cost": "16489",
+      "originalcost": "16999",
+      "offer": "3",
+      "description": "If you are looking for a smartphone that can give you an enhanced listening, viewing, and good user experience, then you can go for the Redmi Note 8 Pro. It comes with the 64 MP AI Quad Camera Array, which lets you click gorgeous professional-quality photos anytime, anywhere. As for selfies, you can use the 20 MP selfie camera and capture your moments to relive them later. It also comes with 64 GB of ROM (expandable up to 128 GB) and 6 GB of RAM. Also, it has a powerful battery, so you can use the phone for hours on end.",
+      "available": true,
+      "type": "mobiles",
+      "reviews": [{
+          "id": 1,
+          "comment": "Thank you NN for fast delivery i got my phone within 2 days",
+          "star": "5",
+          "author": "Aazam"
+        },
+        {
+          "id": 2,
+          "comment": "Best camera best Features",
+          "star": "4.5",
+          "author": "Rajesh"
+        },
+        {
+          "id": 3,
+          "comment": "Battery can be better, need 5000 mah",
+          "star": "3.8",
+          "author": "Prashanth"
+        }],
+      "id": 6
+    },
+    {
+      "name": "Redmi K20 Pro (Glacier Blue, 128 GB)  (6 GB RAM)",
+      "specifications": [
+        "6 GB RAM | 128 GB ROM",
+        "16.23 cm (6.39 inch) Full HD+ Display",
+        "48MP + 13MP + 8MP | 20MP Front Camera",
+        "4000 mAh Li-polymer Battery",
+        "Qualcomm Snapdragon 855 Processor",
+        "1 Year Warranty on Phone, 6 Months Warranty on Accessories"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/416/416/jxz0brk0/mobile/w/s/r/redmi-k20-pro-na-original-imafgb4ye45dtzvf.jpeg?q=70",
+      "star": "4.5",
+      "cost": "26999",
+      "originalcost": "28999",
+      "offer": "6",
+      "description": "The K20 Pro opens up new possibilities. The blazing-fast processor Qualcomm Snapdragon 855 gives you peak performance, while a 48 MP Triple camera setup lets you see things from a different perspective altogether. Be it gaming or everyday tasks this device handles it flawlessly. The beautiful 16.23-cm (6.39) Horizon AMOLED display is a delight when it comes to viewing content on the go. The Aura Prime design gives the device a unique look while the Corning Gorilla Glass 5 on the front and back enhances the overall user experience.",
+      "available": true,
+      "type": "mobiles",
+      "reviews": [{
+          "id": 1,
+          "comment": "nice phone battery camera is good night mode is cool",
+          "star": "4.8",
+          "author": "Jagdish"
+        },
+        {
+          "id": 2,
+          "comment": "If looks can kill then this phone is a Killer",
+          "star": "5",
+          "author": "Pritish"
+        },
+        {
+          "id": 3,
+          "comment": "I can play FreeFire without lag",
+          "star": "4.8",
+          "author": "Nani"
+        }],
+      "id": 7
+    },
+    {
+      "name": "Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)",
+      "specifications": [
+        "Stylish & Portable Thin and Light Laptop",
+        "13.3 inch HD+ LED Backlit Display",
+        "Light Laptop without Optical Disk Drive",
+        "Intel Core i5 Processor (5th Gen)",
+        "8 GB DDR3 RAM,128 GB SSD"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/416/416/jsnjbm80/computer/j/8/c/apple-na-thin-and-light-laptop-original-imafe6f7hfze53yj.jpeg?q=70",
+      "star": "4.7",
+      "cost": "65990",
+      "originalcost": "84900",
+      "offer": "22",
+      "description": "It is fun to use, it is powerful and it looks incredible, meet the Apple MacBook Air. This Sleek and Lightweight laptop is powered by Intel Core i5 5th Gen processor with 8 GB DDR3 RAM and 128 GB of SSD capacity to make multitasking smooth and easy. It is designed with a Backlit Keyboard and its Multi-Touch Trackpad will be an absolute pleasure to use.",
+      "available": true,
+      "type": "desktops",
+      "reviews": [{
+          "id": 1,
+          "comment": "Apple touch pads are awesome, smooth and responsive compared to any premium laptop",
+          "star": "5",
+          "author": "Abhay"
+        },
+        {
+          "id": 2,
+          "comment": "Good",
+          "star": "4",
+          "author": "Krishnan"
+        },
+        {
+          "id": 3,
+          "comment": "The best thing about macbook is that its more like an iphone.. ",
+          "star": "4.8",
+          "author": "Anjali"
+        }],
+      "id": 8
+    },
+    {
+      "name": "Asus TUF Gaming Ryzen 5 Quad Core",
+      "specifications": [
+        "AMD Ryzen 5 Quad Core Processor",
+        "8 GB DDR4 RAM",
+        "64 bit Windows 10 OS, 1 TB HDD",
+        "17.3 inch Full HD LED Backlit vIPS-Level Anti-glare Display (with 60 Hz Refresh Rate)",
+        "Light Laptop without Optical Disk Drive",
+        "1 Year Onsite Warranty"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/416/416/k6zda4w0/computer/j/3/j/asus-original-imafpbjwzpwnk3ry.jpeg?q=70",
+      "star": "4.3",
+      "cost": "46990",
+      "originalcost": "72990",
+      "offer": "35",
+      "description": "To keep winning at every game, you need a laptop that can match up to your speed. This ASUS gaming laptop is ideal for the gamer in you. It comes with a NanoEdge display that boasts a thin-bezel design, wide-view technology, and IPS-level panel so that your gaming experience is more lifelike. On top of that, you can enjoy high-fidelity and 7.1 channel surround sound, with optimized modes for sports, gaming, and movies with the DTS Surround sound system that comes with this gaming laptop. Furthermore, the Hypercool technology coupled with the compact yet smart design of this laptop ensures that it is optimally cooled during gaming sessions.",
+      "available": true,
+      "type": "desktops",
+      "reviews": [{
+          "id": 1,
+          "comment": "Simply an awesome laptop",
+          "star": "4.6",
+          "author": "Darshan"
+        },
+        {
+          "id": 2,
+          "comment": "Best gaming laptop..",
+          "star": "4.3",
+          "author": "Vasan"
+        },
+        {
+          "id": 3,
+          "comment": "AMD best for gaming",
+          "star": "4.2",
+          "author": "Krishna"
+        }],
+      "id": 9
+    },
+    {
+      "name": "HP Pavilion x360 Core i3 8th Gen - (4 GB/256 GB SSD/Windows 10 Home)",
+      "specifications": [
+        "Intel Core i3 Processor (8th Gen)",
+        "4 GB DDR4 RAM, 256 GB SSD",
+        "Carry It Along 2 in 1 Laptop",
+        "14 inch HD LED Backlit Anti-glare Touch Display (Support Active Stylus Pen)",
+        "1 Year Onsite Warranty"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/416/416/jvzkb680/computer/2/h/f/hp-na-2-in-1-laptop-original-imafgrqph5vt9wad.jpeg?q=70",
+      "star": "4.4",
+      "cost": "44990",
+      "originalcost": "45391",
+      "offer": "1",
+      "description": "NA",
+      "available": true,
+      "type": "desktops",
+      "reviews": [{
+          "id": 1,
+          "comment": "The touchscreen is very responsive and the 360-degree is good",
+          "star": "5",
+          "author": "Jiffy James"
+        },
+        {
+          "id": 2,
+          "comment": "Expecting anti-glair screen in this price",
+          "star": "3",
+          "author": "Hanse"
+        },
+        {
+          "id": 3,
+          "comment": "Touch screen is very sensible ,Speakers also really nice.",
+          "star": "4.7",
+          "author": "Mool"
+        }],
+      "id": 10
+    },
+    {
+      "name": "Dell Core i5 (4 GB DDR4/1 TB/Windows 10 Home/21.5 Inch Screen)",
+      "specifications": [
+        "Intel Core i5",
+        "4 GB DDR4 RAM, 256 GB SSD",
+        "21.5 inch Display",
+        "Windows 10 Home"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/416/416/jxtakcw0/allinone-desktop/k/x/e/dell-3480-original-imafg6s5pgyjtsqw.jpeg?q=70",
+      "star": "3.9",
+      "cost": "60000",
+      "originalcost": "60628",
+      "offer": "1",
+      "description": "NA",
+      "available": true,
+      "type": "desktops",
+      "reviews": [
+        {
+          "id": 1,
+          "comment": "Good",
+          "star": "4.5",
+          "author": "Vamsi"
+        },
+        {
+          "id": 2,
+          "comment": "Not recommended at all",
+          "star": "2",
+          "author": "Kirti Pratap"
+        }],
+      "id": 11
+    },
+    {
+      "name": "Asus Core i5 (4 GB DDR4/1 TB/Windows 10 Home/21.5 Inch Screen)",
+      "specifications": [
+        "Intel core i5, Windows 10 Home",
+        "4 GB DDR4 RAM, 1 TB HDD",
+        "21.5 Inch Display",
+        "Black 387 mm x 489 mm x 51 mm, 4.8 kg",
+        "1 Year Limited Warranty"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/416/416/jq4353k0/allinone-desktop/r/g/j/asus-v222uak-ba082t-original-imafc75sgsexuymk.jpeg?q=70",
+      "star": "4",
+      "cost": "44999",
+      "originalcost": "46990",
+      "offer": "4",
+      "description": "\nThe ASUS Vivo AiO V222 is here to address your multimedia purposes and computing needs effectively. The 54.61 cm (21.5) widescreen NanoEdge Display, ASUS Splendid Technology and ASUS Tru2Life Video Technology give you an immersive visual experience. The ASUS SonicMaster Technology and ASUS AudioWizard feature ensure that you get a captivating aural experience.",
+      "available": true,
+      "type": "desktops",
+      "reviews": [{
+          "id": 1,
+          "comment": "Performance is really good",
+          "star": "4",
+          "author": "Darshan Tapkire"
+        },
+        {
+          "id": 2,
+          "comment": "fast charging...nice sound quality...",
+          "star": "4.5",
+          "author": "Anuj"
+        }],
+      "id": 12
+    },
+    {
+      "name": "Samsung Galaxy M30 (Gradation Black, 64 GB) (4 GB RAM)",
+      "specifications": [
+        "4 GB RAM | 64 GB ROM",
+        "16.26 cm (6.4 inch) Display",
+        "Triple-rear-camera (13 MP + 5 MP + 5 MP), 16 MP Front Camera",
+        "5000 mAh Battery",
+        "1 Year Warranty on Phone, 6 Months Warranty on Accessories"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/416/416/jtq47m80/mobile/g/u/p/samsung-galaxy-m30-galaxy-m30-original-imafeze3yupfqsev.jpeg?q=70",
+      "star": "4.3",
+      "cost": "15499",
+      "originalcost": "16854",
+      "offer": "2",
+      "description": "\nBoasting a powerful 5000-mAh battery, this Samsung handset has all the juice that you could ask for to perform a variety of tasks on a smartphone. And, a 14nm 1.8 GHz Exynos 7904 Octa-core processor, along with 4 GB of LPDDR4x RAM, only helps you do those tasks without any lag.",
+      "available": true,
+      "type": "mobiles",
+      "reviews": [{
+          "id": 1,
+          "comment": "1 day solid battery backup",
+          "star": "4.5",
+          "author": "Shiva"
+        },
+        {
+          "id": 2,
+          "comment": "Perfomance is not the best but ok.",
+          "star": "4",
+          "author": "Ajay"
+        },
+        {
+          "id": 3,
+          "comment": "Faster delivery. Phone is super in this budget.",
+          "star": "5",
+          "author": "Mahesh"
+        }],
+      "id": 13
+    },
+    {
+      "name": "OPPO Reno2 (Ocean Blue, 256 GB) (8 GB RAM)",
+      "specifications": [
+        "8 GB RAM | 256 GB ROM | Expandable Upto 256 GB",
+        "16.51 cm (6.5 inch) Display",
+        "48MP + 8MP + 13MP + 2MP | 16MP Front Camera",
+        "4000 mAh Battery",
+        "Qualcomm Snapdragon 730G Processor",
+        "Ultra Dark Mode l Ultra Steady Video",
+        "20x Digital Zoom"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/416/416/k2jbyq80pkrrdj/mobile-refurbished/u/c/3/reno2-128-u-cph1907-oppo-8-original-imafkffqzfkwvhya.jpeg?q=70",
+      "star": "4.5",
+      "cost": "38990",
+      "originalcost": "39990",
+      "offer": "2",
+      "description": "\nFeaturing a powerful Qualcomm Snapdragon 730G processor and 8 GB of RAM, this smartphone from Oppo certainly packs a punch. It not only offers you lag-free smartphone performance, but it also has a 16.51-centimetre (6.5) Sunlight AMOLED display to ensure that you can enjoy watching your favourite video content.",
+      "available": true,
+      "type": "mobiles",
+      "reviews": [{
+          "id": 1,
+          "comment": "Awesome phone with very good camera with zoom 20x",
+          "star": "5",
+          "author": "Harsha"
+        },
+        {
+          "id": 2,
+          "comment": "Best camera phone",
+          "star": "4.2",
+          "author": "Sreejith"
+        },
+        {
+          "id": 3,
+          "comment": "Battery can be better",
+          "star": "3.5",
+          "author": "Srivalli"
+        }],
+      "id": 14
+    },
+    {
+      "name": "Samsung Galaxy A71 (Prism Crush Black, 128 GB) (8 GB RAM)",
+      "specifications": [
+        "8 GB RAM | 128 GB ROM | Expandable Upto 512 GB",
+        "17.02 cm (6.7 inch) Full HD+ Display",
+        "64MP + 12MP + 5MP + 5MP | 32MP Front Camera",
+        "4500 mAh Lithium-ion Battery",
+        "Qualcomm SM7150 Processor",
+        "1 Year Warranty on Phone, 6 Months Warranty on Accessories"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/416/416/k6fd47k0/mobile/k/c/f/samsung-galaxy-a71-sm-a715fzkwins-original-imafzvtqrqqwz8zd.jpeg?q=70",
+      "star": "4.5",
+      "cost": "32999",
+      "originalcost": "34999",
+      "offer": "5",
+      "description": "Click a close-up shot of your little one’s cute face, watch your favourite shows come alive with vivid colours, and game till you are bored with the Samsung Galaxy A71 smartphone. Its quad-camera system (64 MP main camera + 123-degree 12 MP ultra-wide camera + 5 MP macro camera + 5 MP depth camera) lets you capture wonderful images while the 32 MP front camera will redefine the way you click selfies with the Slow-mo Selfie feature. With a battery capacity of 4500 mAh, this smartphone can be used for a long time.",
+      "available": true,
+      "type": "mobiles",
+      "reviews": [{
+          "id": 1,
+          "comment": "awesome display, awesome camera, long lasting battery..",
+          "star": "5",
+          "author": "Prashanth"
+        },
+        {
+          "id": 2,
+          "comment": "Awesome",
+          "star": "4.2",
+          "author": "Harish"
+        }],
+      "id": 15
+    },
+    {
+      "name": "POCO X2 (Atlantis Blue, 128 GB) (6 GB RAM)",
+      "specifications": [
+        "6 GB RAM | 128 GB ROM | Expandable Upto 512 GB",
+        "16.94 cm (6.67 inch) Full HD+ Display",
+        "64MP + 8MP + 2MP + 2MP | 20MP + 2MP Dual Front Camera",
+        "4500 mAh Lithium-ion Polymer Battery",
+        "Qualcomm Snapdragon 730G Processor",
+        "1 Year Warranty on Phone, 6 Months Warranty on Accessories"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/416/416/k65d18w0/mobile/4/k/4/poco-x2-mzb9011in-original-imafzz2hbfkvftm5.jpeg?q=70",
+      "star": "4.5",
+      "cost": "18499",
+      "originalcost": "18999",
+      "offer": "2",
+      "description": "Get set to game, capture, and watch your favourite content on the POCO X2 smartphone. Featuring the RealityFlow display, a quad rear camera system (64 MP Sony IMX686 sensor, 8 MP ultra-wide sensor, 2 MP depth sensor, and 2 MP macro sensor), and the liquid cooling system, this smartphone has everything in place to help you do anything in the most suitable manner. Get ready to stun everyone with your picture-perfect selfies, thanks to this smartphone's dual in-screen cameras. That’s not all, with the presence of the 4500 mAh battery, you can be sure that this smartphone will be with you throughout.",
+      "available": true,
+      "type": "mobiles",
+      "reviews": [{
+          "id": 1,
+          "comment": "Best phone ever I have",
+          "star": "4.9",
+          "author": "Ansari"
+        },
+        {
+          "id": 2,
+          "comment": "Expecting more Phone battery, 4500 not enough",
+          "star": "4.1",
+          "author": "Abhinav"
+        },
+        {
+          "id": 3,
+          "comment": "I can easily play FreeFire without any lag",
+          "star": "5",
+          "author": "Nani"
+        }],
+      "id": 16
+    },
+    {
+      "name": "Lenovo Celeron Dual Core (4 GB DDR4/1 TB/Free DOS/19.5 Inch Screen)",
+      "specifications": [
+        "4 GB DDR4 RAM, 1 TB HDD",
+        "Free DOS",
+        "Intel Celeron Dual Core",
+        "19.5 inch Display",
+        "1 Year Onsite Warranty"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/416/416/jw6pifk0/allinone-desktop/5/g/u/lenovo-aio-330-20igm-original-imafdhc6wffzbta4.jpeg?q=70",
+      "star": "4.1",
+      "cost": "25439",
+      "originalcost": "25845",
+      "offer": "1",
+      "description": "With the Lenovo IdeaCentre AIO 330, set up a work or entertainment corner in your home or workplace. This personal computer features a 49.53 cm (19.5) HD Display, 4 GB of DDR4 memory, and the Intel Celeron J4005 Processor for fast and effortless performance.",
+      "available": true,
+      "type": "desktops",
+      "reviews": [{
+          "id": 1,
+          "comment": "I suggest not to play games on celeron based processor.",
+          "star": "4.8",
+          "author": "Srinivas"
+        },
+        {
+          "id": 2,
+          "comment": "very gud experience but I dint got wireless keyboard and mouse",
+          "star": "3",
+          "author": "Gowda"
+        }],
+      "id": 17
+    },
+    {
+      "name": "Lenovo Ideapad S145 Core i5 10th Gen - (8 GB/1 TB HDD/Windows 10 Home)",
+      "specifications": [
+        "Intel Core i5 Processor (10th Gen)",
+        "8 GB DDR4 RAM, 1 TB HDD",
+        "64 bit Windows 10 Operating System,",
+        "39.62 cm (15.6 inch) Display",
+        "1 Year Onsite Warranty"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/416/416/kao98cw0/computer/m/g/d/lenovo-na-laptop-original-imafs6p8gfpcjdgq.jpeg?q=70",
+      "star": "3.8",
+      "cost": "46990",
+      "originalcost": "64790",
+      "offer": "27",
+      "description": "NA",
+      "available": true,
+      "type": "desktops",
+      "reviews": [{
+          "id": 1,
+          "comment": "The sound is horrible. It is 1.5 W speaker which has bad sound",
+          "star": "3",
+          "author": "Raghavendra"
+        },
+        {
+          "id": 2,
+          "comment": "The touchpad is not working...pathetic piece",
+          "star": "2",
+          "author": "Vishnu"
+        },
+        {
+          "id": 3,
+          "comment": "Laptop inbuilt camera is very poor",
+          "star": "4",
+          "author": "Vijay"
+        }],
+      "id": 18
+    },
+    {
+      "name": "Black Shark 2 (Shadow Black, 128 GB) (6 GB RAM)",
+      "specifications": [
+        "6 GB RAM | 128 GB ROM",
+        "16.23 cm (6.39 inch) Display",
+        "48MP + 12MP | 20MP Front Camera",
+        "4000 mAh Battery",
+        "SM855 (Qualcomm Snapdragon Premium Tier) Processor",
+        "1 Year Warranty on Phone, 6 Months Warranty on Accessories"
+      ],
+      "src": "https://rukminim1.flixcart.com/image/416/416/jw5a2kw0/mobile/h/n/h/black-shark-2-skw-h0-original-imafgw4hdemjsas2.jpeg?q=70",
+      "star": "4.4",
+      "cost": "24999",
+      "originalcost": "45999",
+      "offer": "45",
+      "description": "The Black Shark 2 comes features the Snapdragon 855, a beast of a processor, 6 GB of RAM and a storage capacity of 128 GB. Get ready for a lagless and fluid gaming experience.",
+      "available": false,
+      "type": "mobiles",
+      "reviews": [{
+          "id": 1,
+          "comment": "I Loved the System UI (Neat and Clean , Smooth performance)",
+          "star": "4.8",
+          "author": "Vivek Roy"
+        },
+        {
+          "id": 2,
+          "comment": "Superb handset got in offer for 20000 best in class i have rog 2 also but this is also a great handset the main thing is the touch response it's ossam.",
+          "star": "5",
+          "author": "Vicky"
+        },
+        {
+          "id": 3,
+          "comment": "Best phone",
+          "star": "3.9",
+          "author": "Elton Rodrigues"
+        }],
+      "id": 19
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin@wipro.com",
+      "name": "Admin",
+      "password": "admin",
+      "type": "admin"
+    },
+    {
+      "id": 2,
+      "username": "user@wipro.com",
+      "name": "User",
+      "password": "user",
+      "type": "user"
+    },
+    {
+      "id": 3,
+      "username": "user1@wipro.com",
+      "name": "User1",
+      "password": "12345",
+      "type": "user"
+    },
+    {
+      "name": "hhh",
+      "username": "nn@wipro.com",
+      "password": "12345678",
+      "type": "user",
+      "id": 4
+    }
+  ]
+}
