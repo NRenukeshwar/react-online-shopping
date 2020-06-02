@@ -22,7 +22,7 @@ class AdminHome extends React.Component{
        offer:"",
        reviews: [],
 	      description:"",
-       available: false,
+       available: true,
 	      type:""
         },
       pageLoaded:false,
@@ -70,7 +70,7 @@ class AdminHome extends React.Component{
        offer:"",
        reviews: [],
 	      description:"",
-       available: false,
+       available: true,
 	      type:""
         },
       modal:false
@@ -84,7 +84,7 @@ class AdminHome extends React.Component{
     const edit=this.state.editProduct
     
     this.setState({
-      editProduct:{...edit,[e.target.name]:e.target.value}
+      editProduct:{...edit,[e.target.name]:e.target.name=="available"?e.target.value=="available":e.target.value}
     })
   }
 
@@ -141,12 +141,8 @@ class AdminHome extends React.Component{
   handleDelete=(event,index)=>{
     event.preventDefault()
     const products=this.state.products
-    products.splice(index,1)
-
-    this.setState({
-      products:products
-    })
-    //axios.delete('http://localhost:3001/products').then(()=>this.refreshProducts)
+    //products.splice(index,1)
+    axios.delete('http://localhost:3001/products/'+this.state.products[index].id).then(()=>this.refreshProducts)
     alert("Product removed successfully..")
   }
   
@@ -184,25 +180,25 @@ class AdminHome extends React.Component{
             <Label for="specifications">Specifications</Label>
             <br/>
             <ol>
-            {this.state.editProduct.specifications.map((item,index)=><li key={index}>
+            {this.state.editProduct.specifications.map((item,sindex)=><li key={sindex}>
             <div className="input-group">
               <Input
               type="text"
-              id={"specifications"+index}
-              name={"specifications"+index}
+              id={"specifications"+sindex}
+              name={"specifications"+sindex}
               className="form-control mb-1"
               value={item}
               onChange={event => {
-                this.handleChangeRow(event,index);
+                this.handleChangeRow(event,sindex);
               }}
               placeholder="Enter Product specifications"
               required
             />
              <div className="input-group-append">
-                <button type="button" onClick={(e)=>this.deleteRow(e,index)} className="btn btn-danger" style={{height:"38px"}}><i className="fa fa-trash "/></button>
+                <button type="button" onClick={(e)=>this.deleteRow(e,sindex)} className="btn btn-danger" style={{height:"38px"}}><i className="fa fa-trash "/></button>
               </div>
             </div>
-            {index==this.state.editProduct.specifications.length-1? <button type="button" className="btn btn-success" onClick={(e)=>this.addRow(e)}><i className="fa fa-plus"/> Add</button>:''}</li>)}
+            {sindex==this.state.editProduct.specifications.length-1? <button type="button" className="btn btn-success" onClick={(e)=>this.addRow(e)}><i className="fa fa-plus"/> Add</button>:''}</li>)}
             </ol>
           </div>
           <div className="form-group">
@@ -219,7 +215,7 @@ class AdminHome extends React.Component{
               placeholder="Enter Product Image URL"
               required
             />
-            {this.state.editProduct.src.trim()!=""?<img src={this.state.editProduct.src} width="100px" height="100px" alt="Image"/>:''}
+            {this.state.editProduct.src.trim()!=""?<img src={this.state.editProduct.src} width="150px" height="200px" alt="Image"/>:''}
           </div>
           <div className="form-group">
             <Label for="star">Star Rating</Label>
@@ -294,15 +290,15 @@ class AdminHome extends React.Component{
               id="available"
               name="available"
               className="form-control"
-              value={this.state.editProduct.available}
+              value={this.state.editProduct.available?"available":"soldout"}
               onChange={event => {
                 this.handleChange(event);
               }}
               required
             >
               <option value="">Select available</option>
-              <option value="true">Available</option>
-              <option value="false">Sold Out</option>
+              <option value="available">Available</option>
+              <option value="soldout">Sold Out</option>
             </select>
           </div>
           <div className="form-group">
@@ -358,7 +354,7 @@ class AdminHome extends React.Component{
           <div className="col-12 col-sm-7 mt-2">
             <h4>{product.name}</h4>
             Rating: <span className="badge badge-success text-white p-1" style={{fontSize:"12px"}}><i className="fa fa-star"></i>{product.star}</span>
-            <p>Availabilitty :{product.available}</p>
+            <p>Availability :{product.available?"Available":"Sold Out"}</p>
             
           <ul id={"ul"+index} className="nav nav-tabs">
             <li className="nav-item"><a className="nav-link" data-toggle="tab" href={"#descp"+index}>Description</a></li>

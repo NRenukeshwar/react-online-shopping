@@ -9,7 +9,6 @@ class AddProduct extends React.Component{
   {
     super();
     this.state={
-
         name: "",
 	      specifications:[""],
         src:"",
@@ -18,7 +17,7 @@ class AddProduct extends React.Component{
        originalcost:"",
        offer:"",
 	      description:"",
-       available: "",
+       available: true,
 	      type:""
     }
   }
@@ -28,7 +27,7 @@ class AddProduct extends React.Component{
     const value = event.target.value;
   
     this.setState({
-      [name]: value
+      [name]: name=="available"?value=="available":value
     })
   }
 
@@ -81,7 +80,6 @@ class AddProduct extends React.Component{
        originalcost!="" &&
        offer!="" &&
 	      description!="" &&
-       available!="" &&
 	      type!=""
     )
     {
@@ -95,7 +93,7 @@ class AddProduct extends React.Component{
        originalcost:"",
        offer:"",
 	      description:"",
-       available: "",
+       available: true,
 	      type:""
     }))
     alert("New Product added successfully")
@@ -132,25 +130,25 @@ class AddProduct extends React.Component{
             <Label for="specifications">Specifications</Label>
             <br/>
             <ol>
-            {this.state.specifications.map((item,index)=><li key={index}>
+            {this.state.specifications.map((item,sindex)=><li key={sindex}>
             <div className="input-group">
               <Input
               type="text"
-              id={"specifications"+index}
-              name={"specifications"+index}
+              id={"specifications"+sindex}
+              name={"specifications"+sindex}
               className="form-control mb-1"
               value={item}
               onChange={event => {
-                this.handleChangeRow(event,index);
+                this.handleChangeRow(event,sindex);
               }}
               placeholder="Enter Product specifications"
               required
             />
              <div className="input-group-append">
-                <button type="button" onClick={(e)=>this.deleteRow(e,index)} className="btn btn-danger" style={{height:"38px"}}><i className="fa fa-trash "/></button>
+                <button type="button" onClick={(e)=>this.deleteRow(e,sindex)} className="btn btn-danger" style={{height:"38px"}}><i className="fa fa-trash "/></button>
               </div>
             </div>
-            {index==this.state.specifications.length-1? <button type="button" className="btn btn-success" onClick={(e)=>this.addRow(e)}><i className="fa fa-plus"/> Add</button>:''}</li>)}
+            {sindex==this.state.specifications.length-1? <button type="button" className="btn btn-success" onClick={(e)=>this.addRow(e)}><i className="fa fa-plus"/> Add</button>:''}</li>)}
             </ol>
           </div>
           <div className="form-group row col-sm-6 mx-auto">
@@ -167,7 +165,7 @@ class AddProduct extends React.Component{
               placeholder="Enter Product Image URL"
               required
             />
-            {this.state.src.trim()!=""?<img src={this.state.src} width="100px" height="100px" alt="Image"/>:''}
+            {this.state.src.trim()!=""?<img src={this.state.src} width="100px" height="200px" alt="Image"/>:''}
           </div>
           <div className="form-group row col-sm-6 mx-auto">
             <Label for="star">Star Rating</Label>
@@ -242,15 +240,15 @@ class AddProduct extends React.Component{
               id="available"
               name="available"
               className="form-control"
-              value={this.state.available}
+              value={this.state.available?"available":"soldout"}
               onChange={event => {
                 this.handleChange(event);
               }}
               required
             >
               <option value="">Select available</option>
-              <option value="true">Available</option>
-              <option value="false">Sold Out</option>
+              <option value="available">Available</option>
+              <option value="soldout">Sold Out</option>
             </select>
           </div>
           <div className="form-group row col-sm-6 mx-auto">
