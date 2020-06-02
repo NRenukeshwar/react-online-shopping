@@ -1,113 +1,112 @@
-import React from 'react'
+import React from "react";
 import { Label, Input } from "reactstrap";
 import { Link } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 
-class AddProduct extends React.Component{
-
- constructor()
-  {
+class AddProduct extends React.Component {
+  constructor() {
     super();
-    this.state={
-        name: "",
-	      specifications:[""],
-        src:"",
-       star:"",
-       cost:"",
-       originalcost:"",
-       offer:"",
-	      description:"",
-       available: true,
-	      type:""
-    }
+    this.state = {
+      name: "",
+      specifications: [""],
+      src: "",
+      star: "",
+      cost: "",
+      originalcost: "",
+      offer: "",
+      description: "",
+      available: true,
+      type: ""
+    };
   }
 
   handleChange = event => {
     const name = event.target.name;
     const value = event.target.value;
-  
-    this.setState({
-      [name]: name=="available"?value=="available":value
-    })
-  }
 
-  addRow=(e)=>{
-    e.preventDefault()
-    const arr=this.state.specifications
-    arr.push("")
     this.setState({
-      specifications:arr
-    })
-  }
+      [name]: name == "available" ? value == "available" : value
+    });
+  };
 
-  deleteRow=(e,index)=>{
-    e.preventDefault()
-    const arr=this.state.specifications
-    if(arr.length>1)
-    arr.splice(index,1)
+  addRow = e => {
+    e.preventDefault();
+    const arr = this.state.specifications;
+    arr.push("");
     this.setState({
-      specifications:arr
-    })
-  }
+      specifications: arr
+    });
+  };
 
-  handleChangeRow=(e,index)=>{
-    const arr=this.state.specifications
-    arr[index]=e.target.value
+  deleteRow = (e, index) => {
+    e.preventDefault();
+    const arr = this.state.specifications;
+    if (arr.length > 1) arr.splice(index, 1);
     this.setState({
-      specifications:arr
-    })
-    
-  }
+      specifications: arr
+    });
+  };
 
-  handleSubmit=(e)=>{
-    e.preventDefault()
-    const {        name,
-	      specifications,
-        src,
-       star,
-       cost,
-       originalcost,
-       offer,
-	      description,
-       available,
-	      type}= this.state
-    if(
-        name!="" &&
-	      specifications.length>0 &&
-        src!="" &&
-       star!="" &&
-       cost!="" &&
-       originalcost!="" &&
-       offer!="" &&
-	      description!="" &&
-	      type!=""
-    )
-    {
-      const newProduct ={...this.state,reviews:[],available:Boolean(this.state.available)}
-      axios.post('http://localhost:3001/products',newProduct).then(res=>this.setState({
-      name: "",
-	      specifications:[""],
-        src:"",
-       star:"",
-       cost:"",
-       originalcost:"",
-       offer:"",
-	      description:"",
-       available: true,
-	      type:""
-    }))
-    alert("New Product added successfully")
+  handleChangeRow = (e, index) => {
+    const arr = this.state.specifications;
+    arr[index] = e.target.value;
+    this.setState({
+      specifications: arr
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const {
+      name,
+      specifications,
+      src,
+      star,
+      cost,
+      originalcost,
+      offer,
+      description,
+      available,
+      type
+    } = this.state;
+    if (
+      name != "" &&
+      specifications.length > 0 &&
+      src != "" &&
+      star != "" &&
+      cost != "" &&
+      originalcost != "" &&
+      offer != "" &&
+      description != "" &&
+      type != ""
+    ) {
+      const newProduct = {
+        ...this.state,
+        reviews: [],
+        available: Boolean(this.state.available)
+      };
+      axios.post("http://localhost:3001/products", newProduct).then(res =>
+        this.setState({
+          name: "",
+          specifications: [""],
+          src: "",
+          star: "",
+          cost: "",
+          originalcost: "",
+          offer: "",
+          description: "",
+          available: true,
+          type: ""
+        })
+      );
+      alert("New Product added successfully");
+    } else {
+      alert("All feilds are mandatory");
     }
-    else
-    {
-      alert("All feilds are mandatory")
-    }
-  }
-  render()
-  {
-    return(
+  };
+  render() {
+    return (
       <div className="container">
-
         <h2 className="text-warning text-center mt-3">Add Product</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group row col-sm-6 mx-auto">
@@ -124,31 +123,50 @@ class AddProduct extends React.Component{
               placeholder="Enter Product Name"
               required
             />
-            
           </div>
           <div className="form-group row col-sm-6 mx-auto">
             <Label for="specifications">Specifications</Label>
-            <br/>
+            <br />
             <ol>
-            {this.state.specifications.map((item,sindex)=><li key={sindex}>
-            <div className="input-group">
-              <Input
-              type="text"
-              id={"specifications"+sindex}
-              name={"specifications"+sindex}
-              className="form-control mb-1"
-              value={item}
-              onChange={event => {
-                this.handleChangeRow(event,sindex);
-              }}
-              placeholder="Enter Product specifications"
-              required
-            />
-             <div className="input-group-append">
-                <button type="button" onClick={(e)=>this.deleteRow(e,sindex)} className="btn btn-danger" style={{height:"38px"}}><i className="fa fa-trash "/></button>
-              </div>
-            </div>
-            {sindex==this.state.specifications.length-1? <button type="button" className="btn btn-success" onClick={(e)=>this.addRow(e)}><i className="fa fa-plus"/> Add</button>:''}</li>)}
+              {this.state.specifications.map((item, sindex) => (
+                <li key={sindex}>
+                  <div className="input-group">
+                    <Input
+                      type="text"
+                      id={"specifications" + sindex}
+                      name={"specifications" + sindex}
+                      className="form-control mb-1"
+                      value={item}
+                      onChange={event => {
+                        this.handleChangeRow(event, sindex);
+                      }}
+                      placeholder="Enter Product specifications"
+                      required
+                    />
+                    <div className="input-group-append">
+                      <button
+                        type="button"
+                        onClick={e => this.deleteRow(e, sindex)}
+                        className="btn btn-danger"
+                        style={{ height: "38px" }}
+                      >
+                        <i className="fa fa-trash " />
+                      </button>
+                    </div>
+                  </div>
+                  {sindex == this.state.specifications.length - 1 ? (
+                    <button
+                      type="button"
+                      className="btn btn-success"
+                      onClick={e => this.addRow(e)}
+                    >
+                      <i className="fa fa-plus" /> Add
+                    </button>
+                  ) : (
+                    ""
+                  )}
+                </li>
+              ))}
             </ol>
           </div>
           <div className="form-group row col-sm-6 mx-auto">
@@ -165,7 +183,16 @@ class AddProduct extends React.Component{
               placeholder="Enter Product Image URL"
               required
             />
-            {this.state.src.trim()!=""?<img src={this.state.src} width="100px" height="200px" alt="Image"/>:''}
+            {this.state.src.trim() != "" ? (
+              <img
+                src={this.state.src}
+                width="100px"
+                height="200px"
+                alt="Image"
+              />
+            ) : (
+              ""
+            )}
           </div>
           <div className="form-group row col-sm-6 mx-auto">
             <Label for="star">Star Rating</Label>
@@ -240,7 +267,7 @@ class AddProduct extends React.Component{
               id="available"
               name="available"
               className="form-control"
-              value={this.state.available?"available":"soldout"}
+              value={this.state.available ? "available" : "soldout"}
               onChange={event => {
                 this.handleChange(event);
               }}
@@ -253,7 +280,7 @@ class AddProduct extends React.Component{
           </div>
           <div className="form-group row col-sm-6 mx-auto">
             <Label for="type">Product Type</Label>
-             <select
+            <select
               id="type"
               name="type"
               className="form-control"
@@ -286,9 +313,6 @@ class AddProduct extends React.Component{
             />
           </div>
 
-
-
-
           <div className="d-flex justify-content-center">
             <Link to="/admin/home">
               <button
@@ -309,11 +333,10 @@ class AddProduct extends React.Component{
               Add
             </button>
           </div>
-          </form>
-
+        </form>
       </div>
-    )
+    );
   }
 }
 
-export default AddProduct
+export default AddProduct;

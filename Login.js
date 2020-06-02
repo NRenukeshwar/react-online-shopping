@@ -28,7 +28,7 @@ function Login(props) {
               LOGIN
             </CardHeader>
             <CardBody>
-              <form onSubmit={(event)=>props.handleLoginSubmit(event)}>
+              <form onSubmit={event => props.handleLoginSubmit(event)}>
                 <div className="input-group form-group">
                   <div className="input-group-prepend">
                     <span
@@ -40,7 +40,8 @@ function Login(props) {
                         color: "black"
                       }}
                     >
-                      <i className="fas fa-user" />&nbsp;Username
+                      <i className="fas fa-user" />
+                      &nbsp;Username
                     </span>
                   </div>
                   <Input
@@ -49,7 +50,7 @@ function Login(props) {
                     id="username"
                     name="username"
                     value={props.username}
-                    onChange={(event)=> props.handleChange(event)}
+                    onChange={event => props.handleChange(event)}
                     placeholder="Enter Email ID"
                     title="Email Id"
                     required
@@ -66,7 +67,8 @@ function Login(props) {
                         color: "black"
                       }}
                     >
-                      <i className="fas fa-key" />&nbsp;Password
+                      <i className="fas fa-key" />
+                      &nbsp;Password
                     </span>
                   </div>
                   <Input
@@ -84,13 +86,13 @@ function Login(props) {
 
                 <div className="form-group ">
                   <button
-              type="submit"
-              id="submit"
-              name="submit"
-              className="btn btn-success"
-            >
-              Login
-            </button>
+                    type="submit"
+                    id="submit"
+                    name="submit"
+                    className="btn btn-success"
+                  >
+                    Login
+                  </button>
                 </div>
               </form>
             </CardBody>
